@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "angrynorman-1bd08": {
+      "hosting": {
+        "AngryNorman": [
+          "angrynorman-1bd08"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "angrynorman-1bd08"
+  }
+}
