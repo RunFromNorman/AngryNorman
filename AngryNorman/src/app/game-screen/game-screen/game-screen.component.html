@@ -1,47 +1,53 @@
 <div class="container">
-    <div class="game-screen">
-      <div class="logo">
-        <img src="assets/dino.png" alt="dino">
-        <h2> {{username}}, Let's play</h2>
-        <button style="margin-left: auto;margin-top: 20px;" [routerLink]="['/']" >Home</button>
+  <div class="game-screen">
+    <div class="logo">
+      <img class = "panicIcon" src="assets/panic.png" alt="">
+      <h2> {{username}}, RUN AND DON'T STOP</h2>
+      <button style="margin-left: auto;margin-top: 20px;" [routerLink]="['/']">Home</button>
+    </div>
+    <div class="rules">
+      <p *ngIf="!ob.playing && score[0]==0">
+        Press <img src="assets/enter.png" alt=""> "Enter" to play.
+      </p>
+      <p *ngIf="!ob.playing && score[0]>0">
+        <img src="assets/dead.png" alt=""><br>Game Over You Got Caught By Professor Norman... Your Got a F
+      </p>
+      <div class="score">
+        <p>Highest Score : <strong> {{score[1]}} </strong></p>
+        <p>Score : <strong> {{score[0]}} </strong></p>
       </div>
-      <div class="rules">
-          <p *ngIf="!ob.playing && score[0]==0">
-            Press <img src="assets/enter.png" alt=""> "Enter" to play.
-          </p>
-          <p *ngIf="!ob.playing && score[0]>0">
-            Game Over <img src="assets/dead.png" alt=""> You died.
-          </p>
-          <div class="score">
-            <p>Highest Score : <strong> {{score[1]}} </strong></p>
-            <p>Score : <strong> {{score[0]}} </strong></p>
+    </div>
+    <div class="game">
+      <div class="screen">
+        <div class="platform" #platform>
+          
+          <div *ngIf="start == false">
+            <div class="initbox">
+              <img class="angrybubble" src="assets/angrybubble.png">
+              <div class="normanText">HOW DARE YOU<br> CHEAT ON MY TEST!!</div>
+            </div>
           </div>
-      </div>
-      <div class="game">
-        <div class="screen">
-          <div class="platform" #platform>
-            <div  class="dino" #dino
-                  [style.bottom.px]="ps.bottom"
-                  [style.height.px]="playerDms.height"
-                  ></div>
-  
-            <div  class="obs" *ngFor="let i of obs"
-                              [style.height.px]="i.height"
-                              [style.width.px]="i.width"
-                              [style.bottom.px]="i.bottom"
-                              [style.left.px]="i.left"></div>
+          <div class="norman" #norman [style.bottom.px]="ns.bottom" [style.height.px]="normanDMS.height">
+            <img class="normanimg" src="assets/norman.png">
           </div>
+          <div class="dino" #dino [style.bottom.px]="ps.bottom" [style.height.px]="playerDms.height">
+            <img class="playerimg" src="assets/player.png">
+          </div>
+
+          <div class="obs" *ngFor="let i of obs" [style.height.px]="i.height" [style.width.px]="i.width"
+            [style.bottom.px]="i.bottom" [style.left.px]="i.left"></div>
+            
         </div>
       </div>
-      <div class="keypad">
-        <div class="keypad-btn" >
-          <button [disabled]="ob.playing" (click)="startGame()" >Play</button>
-          <div>
-            <button [disabled]="!ob.playing" (click)="ps.jump()">Jump</button>
-            <button [disabled]="!ob.playing" (click)="ps.duck()">Duck</button>
-          </div>
+    </div>
+    <div class="keypad">
+      <div class="keypad-btn">
+        <button [disabled]="ob.playing" (click)="startGame()">Play</button>
+        <div>
+          <button [disabled]="!ob.playing" (click)="ps.jump()">Jump</button>
+          <button [disabled]="!ob.playing" (click)="ps.duck()">Duck</button>
         </div>
       </div>
     </div>
   </div>
-  
+</div>
