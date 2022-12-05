@@ -4,6 +4,7 @@ import { Dimensions, PlayerService } from '../../services/player.service';
 import { Obstacle, ObstacleService, score, start } from '../../services/obstacle.service';
 import { obs,platCords,platDms } from '../../services/obstacle.service';
 import { playerCords,playerDms } from '../../services/player.service';
+import { normanCords,normanDms, NormanService } from '../../services/norman.service';
 
 @Component({
   selector: 'app-game-screen',
@@ -16,14 +17,18 @@ export class GameScreenComponent implements OnInit{
   start:boolean = false;
   obs:Obstacle[]=obs;
   playerDms:Dimensions = playerDms;
+  normanDMS:Dimensions = normanDms;
   score:number[] = score;
 
   @ViewChild('player') playerRef!: ElementRef;
+  @ViewChild('norman') normanRef!: ElementRef;
   @ViewChild('platform') platformRef!: ElementRef;
+
 
 
   constructor(private route:ActivatedRoute,
               public ps:PlayerService,
+              public ns: NormanService,
               public ob:ObstacleService,
               private router:Router) {
 
@@ -50,6 +55,7 @@ export class GameScreenComponent implements OnInit{
       case 'Enter':
             if(!this.ob.playing)
               this.startGame();
+              this.start = true;
             break;
 
       case 'ArrowDown':{
@@ -66,13 +72,15 @@ export class GameScreenComponent implements OnInit{
   // start or restart the game on spacebar button.
   // start : clear all the obstacle and score and other stuff.
   startGame(){
-
     obs.splice(0,obs.length);
     this.ps.bottom = 0;
     playerDms.height = 30;
-    playerCords.xoffset = 50;
+    playerCords.xoffset = 150;
     playerCords.yoffset = 328;
-
+    this.ns.bottom = 0;
+    normanDms.height = 60;
+    normanCords.xoffset = 50;
+    normanCords.yoffset = 600;
 
     let plCords = this.platformRef.nativeElement.getBoundingClientRect();
     platCords.xoffset = Math.floor(plCords.x + plCords.width);
