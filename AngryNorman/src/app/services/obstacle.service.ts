@@ -6,6 +6,7 @@ export let platCords:Cords = { xoffset:0, yoffset:0 };
 export let platDms:Dimensions = { width:0, height:0 };
 export let start:boolean = false;
 export let score:number[] = [0,0];
+export let grade:String;
 
 export class Obstacle{
   height:number;
@@ -15,6 +16,9 @@ export class Obstacle{
   type:number;
   xoffset:number = 0;
   yoffset:number = 0;
+  life:number;
+
+
 
   constructor(h:number,w:number,b:number,t:number) {
     // init the members
@@ -25,31 +29,33 @@ export class Obstacle{
     this.bottom = b;
     this.xoffset = this.left + w;
     this.yoffset = platCords.yoffset - h - b;
+    this.life =4;
+
 
     // start the motion of this obstacle and check for collision
     this.moveLeft(t);
   }
 
-  // moving th obstacle by subtracting the xoffset.
+  // moving the obstacle by subtracting the xoffset.
   moveLeft(t:number){
 
     let leftTimer = setInterval(()=>{
-
       // remove the obstacle from array when moves out of game screen and increase score
       if(this.left<=-(this.width)){
         clearInterval(leftTimer);
         score[0] += 10;
         obs.splice(0,1);
       }
-
       this.left -= 5;
       this.xoffset -= 5;
 
+
       // check for collision when its moving.
-      if(this.collision(t) || !start){
+      if( (this.collision(t)) || !start){
         // stop the game
         clearInterval(leftTimer);
         start =  false;
+        
       }
 
     },15);
@@ -59,8 +65,8 @@ export class Obstacle{
   collision(t:number):boolean{
 
     let o_A:Cords,o_B:Cords,d_A:Cords,d_B:Cords;
-
-    switch (t) {
+    
+    switch (t) {  
       case 1:
         // for running obstacles.
         d_B = {xoffset:playerCords.xoffset+20, yoffset:playerCords.yoffset+playerDms.height};
@@ -69,7 +75,7 @@ export class Obstacle{
         o_B = {xoffset:this.xoffset-this.width, yoffset:this.yoffset};
 
         if((o_B.xoffset <= d_B.xoffset  && o_B.xoffset >= d_A.xoffset) && (d_B.yoffset > o_A.yoffset)){
-          return true;
+          return true
         }
         break;
 
@@ -84,15 +90,15 @@ export class Obstacle{
           return true
         }
         break;
-    }
-
-    return false;
+  }
+return false
   }
 
 };
 
 // having array of obstacles
 export let obs:Obstacle[] = [];
+
 
 @Injectable({
   providedIn: 'root'

@@ -36,7 +36,14 @@
 
           <div class="obs" *ngFor="let i of obs" [style.height.px]="i.height" [style.width.px]="i.width"
             [style.bottom.px]="i.bottom" [style.left.px]="i.left"></div>
-            
+            <ng-container [ngSwitch]="grade">
+              <img *ngSwitchCase="'a'" class="gradeimg" src="assets/letterA.png" />
+              <img *ngSwitchCase="'b'" class="gradeimg" src="assets/letterB.png" />
+              <img *ngSwitchCase="'c'" class="gradeimg" src="assets/letterC.png" />
+              <img *ngSwitchCase="'d'" class="gradeimg" src="assets/letterD.png" />
+              <img *ngSwitchCase="'f'" class="gradeimg" src="assets/flamingF.png" />
+              
+            </ng-container>
         </div>
       </div>
     </div>

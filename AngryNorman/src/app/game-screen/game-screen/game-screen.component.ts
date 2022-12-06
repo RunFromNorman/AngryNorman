@@ -2,7 +2,7 @@ import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular
 import { ActivatedRoute, Router } from '@angular/router';
 import { Dimensions, PlayerService } from '../../services/player.service';
 import { Obstacle, ObstacleService, score, start } from '../../services/obstacle.service';
-import { obs,platCords,platDms } from '../../services/obstacle.service';
+import { obs,platCords,platDms, grade } from '../../services/obstacle.service';
 import { playerCords,playerDms } from '../../services/player.service';
 import { normanCords,normanDms, NormanService } from '../../services/norman.service';
 
@@ -19,10 +19,12 @@ export class GameScreenComponent implements OnInit{
   playerDms:Dimensions = playerDms;
   normanDMS:Dimensions = normanDms;
   score:number[] = score;
+  grade:String = grade;
 
   @ViewChild('player') playerRef!: ElementRef;
   @ViewChild('norman') normanRef!: ElementRef;
   @ViewChild('platform') platformRef!: ElementRef;
+
 
 
 
