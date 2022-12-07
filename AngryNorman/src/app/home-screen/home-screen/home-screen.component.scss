@@ -1,95 +1,106 @@
 .container {
-  
 
-h1 {
-  font-weight: bold;
-  color: black;
-  font-size: 50px;
-  white-space: nowrap;
-  text-align: center;
-}
-strong{
-  color: red;
-}
-.guide{
-  color: rgb(5, 142, 96);
-}
-    .home-screen {
-      .cartoonbutton{
-        text-align: center;
-        justify-content: center
-      
-      }
-      .cartoonblock{
-        text-align: center;
-        justify-content: center
-      }
-      .cartoonimage{
-        height: 600px;
-        width: 600px;
-      }
-      .rules {
-        text-align: center;
-        p {
-          
-          line-height: 30px;
-          img {
-            width: 30px;
-          }
-          span {
-            
-            margin: 0 10px;
-          }
+
+  h1 {
+    font-weight: bold;
+    color: black;
+    font-size: 50px;
+    white-space: nowrap;
+    text-align: center;
+  }
+
+  strong {
+    color: red;
+  }
+
+  .guide {
+    color: rgb(5, 142, 96);
+  }
+
+  .home-screen {
+    .cartoonbutton {
+      text-align: center;
+      justify-content: center
+    }
+
+    .cartoonblock {
+      text-align: center;
+      justify-content: center
+    }
+
+    .cartoonimage {
+      height: 600px;
+      width: 600px;
+    }
+
+    .rules {
+      text-align: center;
+
+      p {
+
+        line-height: 30px;
+
+        img {
+          width: 30px;
+        }
+
+        span {
+
+          margin: 0 10px;
         }
       }
-      .homedevil{
-        height: 150px;
-        width: 150px;
-      }
-      .homeangel{
-        height: 150px;
-        width: 150px;
-      }
-      .entry-form {
-        form {
-          
-          margin: 10% 0;
+    }
+
+    .homedevil {
+      height: 150px;
+      width: 150px;
+    }
+
+    .homeangel {
+      height: 150px;
+      width: 150px;
+    }
+
+    .entry-form {
+      form {
+
+        margin: 10% 0;
+        display: flex;
+        flex-direction: column;
+
+        .form-group {
+
+          position: relative;
           display: flex;
           flex-direction: column;
-          
-          .form-group {
-            
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            
-            label {
-              
-              font-size: smaller;
-              margin-bottom: 5px;
-            }
-            .error-msg {
-              position: absolute;
-              bottom: 5px;
-              font-size: smaller;
-              color: red;
-            }
+
+          label {
+
+            font-size: smaller;
+            margin-bottom: 5px;
+          }
+
+          .error-msg {
+            position: absolute;
+            bottom: 5px;
+            font-size: smaller;
+            color: red;
           }
         }
       }
-
     }
+
   }
-  
-  @media (min-width: 768px) {
-    .container {
-      .home-screen {
-        .entry-form {
-          
-          width: 100%;
-          // margin: 0 auto;
-        }
+}
+
+@media (min-width: 768px) {
+  .container {
+    .home-screen {
+      .entry-form {
+
+        width: 100%;
+        // margin: 0 auto;
       }
     }
   }
-  
+}

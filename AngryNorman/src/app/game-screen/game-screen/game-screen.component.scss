@@ -1,182 +1,238 @@
 .container {
-    align-items: unset;
-    h2{
-      text-transform: capitalize;
+  align-items: unset;
+
+  h2 {
+    text-transform: capitalize;
+  }
+
+  .panicIcon {
+    height: 50px;
+    width: 50px;
+  }
+
+  .rules {
+    height: 70px;
+    display: flex;
+    align-items: center;
+
+    img {
+      width: 20px;
     }
-    .panicIcon{
-      height: 50px;
-      width: 50px;
+
+    .score {
+      margin-left: auto;
+      text-align: right;
+
+      p {
+        margin: 5px 0px;
+        font-weight: 500;
+      }
     }
-    .rules{
-      height: 70px;
+  }
+
+  .game-screen {
+    .op-btns {
       display: flex;
-      align-items: center;
-      img{
-        width: 20px;
-      }
-      .score{
-        margin-left: auto;
-        text-align: right;
-        p{
-          margin: 5px 0px;
-          font-weight: 500;
-        }
+      flex-direction: row;
+
+      button {
+        margin-right: 15px;
       }
     }
-    .game-screen {
-      .op-btns {
-        display: flex;
-        flex-direction: row;
-        button {
-          margin-right: 15px;
-        }
-      }
-      .game {
-        .screen {
-          height: 200px;
-          min-width: 55vw;
-          position: relative;
-          .platform {
-            overflow: hidden;
-            background-color: white;
-            height: 100%;
-            width: 100%;
+
+    .game {
+      .screen {
+        height: 200px;
+        min-width: 55vw;
+        position: relative;
+
+        .platform {
+          overflow: hidden;
+          background-color: white;
+          height: 100%;
+          width: 100%;
+          position: absolute;
+          top: 0px;
+          border-radius: 5px 5px 0px 0px;
+          box-shadow: 0px 4px 0px black;
+
+          .dino {
+            background-color: #ffffff;
+            outline: 2px solid #ffffff;
+            border-radius: 2px;
+            height: 30px;
+            width: 20px;
+            position: absolute;
+            bottom: 0px;
+            left: 150px;
+
+          }
+
+          .norman {
+            background-color: #ffffff;
+            outline: 2px solid #ffffff;
+            border-radius: 2px;
+            height: 60px;
+            width: 60px;
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+
+          }
+
+          .playerimg {
+
+            height: 30px;
+            width: 20px;
+            bottom: 0px;
+            left: 50px;
+            animation: shake 1.5s;
+            animation-iteration-count: infinite;
+          }
+
+          .normanimg {
+
+            height: 60px;
+            width: 460x;
+            bottom: 0px;
+            left: 50px;
+            background-size: contain;
+            animation: shake 0.1s;
+            animation-iteration-count: infinite;
+
+          }
+
+          .obs {
+            background-color: black;
+            border-radius: 2px;
+            position: absolute;
+            bottom: 0;
+          }
+
+          .gradeimg {
+            height: 60px;
+            width: 460x;
             position: absolute;
             top: 0px;
-            border-radius: 5px 5px 0px 0px;
-            box-shadow: 0px 4px 0px black;
-            .dino {
-              background-color: #ffffff;
-              outline: 2px solid #ffffff;
-              border-radius: 2px;
-              height: 30px;
-              width: 20px;
-              position: absolute;
-              bottom: 0px;
-              left: 150px;
-
-            }
-            .norman {
-              background-color: #ffffff;
-              outline: 2px solid #ffffff;
-              border-radius: 2px;
-              height: 60px;
-              width: 60px;
-              position: absolute;
-              bottom: 0px;
-              left: 0px;
-
-            }
-            .playerimg{
-              
-              height: 30px;
-              width: 20px;
-              bottom: 0px;
-              left: 50px;
-              animation: shake 1.5s;
-              animation-iteration-count: infinite;
-            }
-            .normanimg{
-              
-              height: 60px;
-              width: 460x;
-              bottom: 0px;
-              left: 50px;
-              background-size: contain;
-              animation: shake 0.1s;
-              animation-iteration-count: infinite;
-              
-            }
-            .obs{
-              background-color: black;
-              border-radius: 2px;
-              position: absolute;
-              bottom: 0;
-            }
-            .gradeimg{
-              height: 60px;
-              width: 460x;      
-              position: absolute;
-              top: 0px;
-              right: 0px;
-              background-size:auto;
-              animation: shake 3s;
-              animation-iteration-count: infinite;
-            }
-            .initbox{
-              position: relative;
-              display: inline-block;
-              
-            }
-            .angrybubble{
-              display: block;
-              position: relative;
-              height: 150px;
-              width: 300px;
-              bottom: 0px;
-              left: 50px;
-              animation: shake 0.8s;
-              animation-iteration-count: infinite;
-            }
-            .normanText{
-              text-align:center;
-              font-size: small;
-              font-weight: bolder;
-              position: absolute;
-              top: 45%;
-              left: 65%;          
-              transform: translate(-50%, -50%);
-            }
-          
+            right: 0px;
+            background-size: auto;
+            animation: shake 3s;
+            animation-iteration-count: infinite;
           }
+
+          .initbox {
+            position: relative;
+            display: inline-block;
+
+          }
+
+          .angrybubble {
+            display: block;
+            position: relative;
+            height: 150px;
+            width: 300px;
+            bottom: 0px;
+            left: 50px;
+            animation: shake 0.8s;
+            animation-iteration-count: infinite;
+          }
+
+          .normanText {
+            text-align: center;
+            font-size: small;
+            font-weight: bolder;
+            position: absolute;
+            top: 45%;
+            left: 65%;
+            transform: translate(-50%, -50%);
+          }
+
         }
       }
-      .keypad{
-        display: none;
-      }
-      }
-  
-  
-  }
-  
-  
-  @media (max-width: 768px) {
-    .container{
-      .game-screen{
-        .keypad{
-          display: block !important;
-          .keypad-btn{
-            display: flex;
-            margin: 20px -10px;
-            flex-direction: column;
-            button{
-              margin: 10px 10px;
-            }
-            div{
-              display: flex;
-              height: 150px;
-              button{
-                width: 100%;
-              }
-            }
-          }
-        }
     }
+
+    .keypad {
+      display: none;
+    }
+  }
+
+
+}
+
+
+@media (max-width: 768px) {
+  .container {
+    .game-screen {
+      .keypad {
+        display: block !important;
+
+        .keypad-btn {
+          display: flex;
+          margin: 20px -10px;
+          flex-direction: column;
+
+          button {
+            margin: 10px 10px;
+          }
+
+          div {
+            display: flex;
+            height: 150px;
+
+            button {
+              width: 100%;
+            }
+          }
+        }
       }
+    }
   }
-  // image shaking styling code :
-  // https://www.w3schools.com/howto/howto_css_shake_image.asp
-  @keyframes shake {
-    0% { transform: translate(1px, 1px) rotate(0deg); }
-    10% { transform: translate(-1px, -2px) rotate(-1deg); }
-    20% { transform: translate(-3px, 0px) rotate(1deg); }
-    30% { transform: translate(3px, 2px) rotate(0deg); }
-    40% { transform: translate(1px, -1px) rotate(1deg); }
-    50% { transform: translate(-1px, 2px) rotate(-1deg); }
-    60% { transform: translate(-3px, 1px) rotate(0deg); }
-    70% { transform: translate(3px, 1px) rotate(-1deg); }
-    80% { transform: translate(-1px, -1px) rotate(1deg); }
-    90% { transform: translate(1px, 2px) rotate(0deg); }
-    100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+// image shaking styling code :
+// https://www.w3schools.com/howto/howto_css_shake_image.asp
+@keyframes shake {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
   }
-  
+
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
+}

@@ -1,7 +1,7 @@
 <div class="container">
   <div class="game-screen">
     <div class="logo">
-      <img class = "panicIcon" src="assets/panic.png" alt="">
+      <img class="panicIcon" src="assets/panic.png" alt="">
       <h2> {{username}}, RUN AND DON'T STOP</h2>
       <button style="margin-left: auto;margin-top: 20px;" [routerLink]="['/']">Home</button>
     </div>
@@ -20,7 +20,7 @@
     <div class="game">
       <div class="screen">
         <div class="platform" #platform>
-          
+
           <div *ngIf="start == false">
             <div class="initbox">
               <img class="angrybubble" src="assets/angrybubble.png">
@@ -36,15 +36,15 @@
 
           <div class="obs" *ngFor="let i of obs" [style.height.px]="i.height" [style.width.px]="i.width"
             [style.bottom.px]="i.bottom" [style.left.px]="i.left"></div>
-            <ng-container [ngSwitch]="grade">
-              <img *ngSwitchCase="'godmode'" class="gradeimg" src="assets/godmode.png" />
-              <img *ngSwitchCase="'A'" class="gradeimg" src="assets/letterA.png" />
-              <img *ngSwitchCase="'B'" class="gradeimg" src="assets/letterB.png" />
-              <img *ngSwitchCase="'C'" class="gradeimg" src="assets/letterC.png" />
-              <img *ngSwitchCase="'D'" class="gradeimg" src="assets/letterD.png" />
-              <img *ngSwitchDefault class="gradeimg" src="assets/flamingF.png" />
-              
-            </ng-container>
+          <ng-container [ngSwitch]="grade">
+            <img *ngSwitchCase="'godmode'" class="gradeimg" src="assets/godmode.png" />
+            <img *ngSwitchCase="'A'" class="gradeimg" src="assets/letterA.png" />
+            <img *ngSwitchCase="'B'" class="gradeimg" src="assets/letterB.png" />
+            <img *ngSwitchCase="'C'" class="gradeimg" src="assets/letterC.png" />
+            <img *ngSwitchCase="'D'" class="gradeimg" src="assets/letterD.png" />
+            <img *ngSwitchDefault class="gradeimg" src="assets/flamingF.png" />
+
+          </ng-container>
         </div>
       </div>
     </div>

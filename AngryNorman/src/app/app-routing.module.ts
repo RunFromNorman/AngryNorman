@@ -5,16 +5,16 @@ import { HomeScreenComponent } from './home-screen/home-screen/home-screen.compo
 
 const routes: Routes = [
   {
-    path:'game',
-    component:GameScreenComponent
+    path: 'game',
+    component: GameScreenComponent
   },
   {
-    path:'',
-    component:HomeScreenComponent
+    path: '',
+    component: HomeScreenComponent
   },
   {
-    path:'**',
-    redirectTo:''
+    path: '**',
+    redirectTo: ''
   }
 ];
 
