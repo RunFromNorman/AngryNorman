@@ -9,6 +9,8 @@ Team member: Seong Chan Cho (sc77) GunJu David Yoo (gy24)
 Project Description: To Cheat or Not to Cheat is a mini game where player runs away from angry professor Norman while avoiding obstacles. 
 
 
+Project Deatils: (https://docs.google.com/document/d/1_j8OgXuTX_C_5hVC8X42tUdr5KQR7XEtckNiW6UO4sA/edit)
+
 
 ## Important Notes:
 
