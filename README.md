@@ -1,8 +1,14 @@
 ## AngryNorman
 
-Team name : AngryNorman __
-Team member: Seong Chan Cho (sc77) GunJu David Yoo (gy24) __
-Project Description: To Cheat or Not to Cheat is a mini game where player runs away from angry professor Norman while avoiding obstacles. __
+Team name : AngryNorman 
+
+
+Team member: Seong Chan Cho (sc77) GunJu David Yoo (gy24) 
+
+
+Project Description: To Cheat or Not to Cheat is a mini game where player runs away from angry professor Norman while avoiding obstacles. 
+
+
 
 ## Important Notes:
 
