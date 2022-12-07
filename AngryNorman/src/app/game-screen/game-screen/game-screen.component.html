@@ -10,7 +10,7 @@
         Press <img src="assets/enter.png" alt=""> "Enter" to play.
       </p>
       <p *ngIf="!ob.playing && score[0]>0">
-        <img src="assets/dead.png" alt=""><br>Game Over You Got Caught By Professor Norman... Your Got a F
+        <img src="assets/dead.png" alt=""><br>Game Over You Got Caught By Professor Norman... Your Got a {{grade}}
       </p>
       <div class="score">
         <p>Highest Score : <strong> {{score[1]}} </strong></p>
@@ -37,11 +37,12 @@
           <div class="obs" *ngFor="let i of obs" [style.height.px]="i.height" [style.width.px]="i.width"
             [style.bottom.px]="i.bottom" [style.left.px]="i.left"></div>
             <ng-container [ngSwitch]="grade">
-              <img *ngSwitchCase="'a'" class="gradeimg" src="assets/letterA.png" />
-              <img *ngSwitchCase="'b'" class="gradeimg" src="assets/letterB.png" />
-              <img *ngSwitchCase="'c'" class="gradeimg" src="assets/letterC.png" />
-              <img *ngSwitchCase="'d'" class="gradeimg" src="assets/letterD.png" />
-              <img *ngSwitchCase="'f'" class="gradeimg" src="assets/flamingF.png" />
+              <img *ngSwitchCase="'godmode'" class="gradeimg" src="assets/godmode.png" />
+              <img *ngSwitchCase="'A'" class="gradeimg" src="assets/letterA.png" />
+              <img *ngSwitchCase="'B'" class="gradeimg" src="assets/letterB.png" />
+              <img *ngSwitchCase="'C'" class="gradeimg" src="assets/letterC.png" />
+              <img *ngSwitchCase="'D'" class="gradeimg" src="assets/letterD.png" />
+              <img *ngSwitchDefault class="gradeimg" src="assets/flamingF.png" />
               
             </ng-container>
         </div>

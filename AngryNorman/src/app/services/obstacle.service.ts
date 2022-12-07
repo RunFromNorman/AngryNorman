@@ -6,7 +6,7 @@ export let platCords:Cords = { xoffset:0, yoffset:0 };
 export let platDms:Dimensions = { width:0, height:0 };
 export let start:boolean = false;
 export let score:number[] = [0,0];
-export let grade:String;
+export let grade:String = 'f';
 
 export class Obstacle{
   height:number;
@@ -17,6 +17,7 @@ export class Obstacle{
   xoffset:number = 0;
   yoffset:number = 0;
   life:number;
+  grade = 'f'
 
 
 
