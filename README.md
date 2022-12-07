@@ -1,10 +1,10 @@
-### AngryNorman
+## AngryNorman
 
-Team name : AngryNorman 
-Team member: Seong Chan Cho (sc77) GunJu David Yoo (gy24)
-Project Description: To Cheat or Not to Cheat is a mini game where player runs away from angry professor Norman while avoiding obstacles. 
+Team name : AngryNorman __
+Team member: Seong Chan Cho (sc77) GunJu David Yoo (gy24) __
+Project Description: To Cheat or Not to Cheat is a mini game where player runs away from angry professor Norman while avoiding obstacles. __
 
-###Important Notes:
+## Important Notes:
 
 AngryNorman has built our project above (https://github.com/deeps8/ng-dino) Chrome Dino Game. 
 We have added more features and functionalities along with more UI and components. 
