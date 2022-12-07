@@ -11,6 +11,31 @@ export class HomeScreenComponent implements OnInit {
 
   playerForm!: FormGroup;
 
+  imageSrc = '';
+
+  imageButtons = [
+    {
+      src: 'assets/cartoon1.jpg',
+    },
+    {
+      src: 'assets/cartoon2.jpg',
+    },
+    {
+      src: 'assets/cartoon3.jpg',
+    },
+    {
+      src: 'assets/cartoon4.jpg',
+    },
+    {
+      src: 'assets/cartoon5.jpg',
+    },
+    {
+      src: 'assets/cartoonlast.jpg',
+    },
+  ]
+
+
+
   constructor(private router:Router) {
 
   }
@@ -29,5 +54,7 @@ export class HomeScreenComponent implements OnInit {
       this.router.navigate(['game',{user:this.playerForm.get('username')?.value}]);
     }
   }
-
+  onClick(imageNameObject: { src: string;}) {
+    this.imageSrc = imageNameObject.src;
+  }
 }

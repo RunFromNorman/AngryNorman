@@ -1,40 +1,50 @@
 <div class="container">
-    <div class="home-screen" >
-      <div class="logo">
-        <img class = "homedevil" src="assets/norman.png" alt="">
-        <h1>TO CHEAT<br> OR <br> NOT TO CHEAT</h1>
-        <img class = "homeangel" src="assets/angelnorman.png" alt="">
-      </div>
-      
-      <div class="rules">
-        <p>Dodge his <strong>WRATH</strong> by either Jumping or Ducking.</p>
+  <div class="home-screen">
+    <div class="logo">
+      <img class="homedevil" src="assets/norman.png" alt="">
+      <h1>TO CHEAT<br> OR <br> NOT TO CHEAT</h1>
+      <img class="homeangel" src="assets/angelnorman.png" alt="">
+    </div>
+    <div class = "cartoonblock">
+      <img class="cartoonimage" src="{{imageSrc}}">
+    </div>
+    <div class = cartoonbutton>
+      <button *ngFor="let imageButton of imageButtons; let i = index" (click)="onClick(imageButton)"
+        >Page {{i+1}}</button>
+      <div>
+
+        <div class="rules">
+          <p>Dodge his <strong>WRATH</strong> by either Jumping or Ducking.</p>
           <p class="inst">
             Press <img src="assets/enter.png" alt=""> "Enter" to start or restart the game. <br>
-            Press <img src="assets/space.png" alt=""> "Space" <span> - or - </span> <img src="assets/arrow-up.png" alt=""> "Arrow Up" to Jump. <br>
+            Press <img src="assets/space.png" alt=""> "Space" <span> - or - </span> <img src="assets/arrow-up.png"
+              alt="">
+            "Arrow Up" to Jump. <br>
             Press <img src="assets/arrow-down.png" alt=""> "Arrow Down" to Duck.
           </p>
           <br>
-          <p class="guide">Enter Your Name to Play.</p> 
-      </div>
-      <div class =  "userEntry">
-      <div class="entry-form">
-        <form (ngSubmit)="onEnter()" [formGroup]="playerForm">
-          <div class="form-group">
-            <input type="text" required autocomplete="off" name="username" formControlName="username">
-            <div class="error-msg" *ngIf="playerForm.get('username')?.hasError('required') && playerForm.get('username')?.touched">
-              required
-            </div>
-            <div class="error-msg" *ngIf="playerForm.get('username')?.hasError('minlength') && playerForm.get('username')?.touched">
-              too small
-            </div>
+          <p class="guide">Enter Your Name to Play.</p>
+        </div>
+        <div class="userEntry">
+          <div class="entry-form">
+            <form (ngSubmit)="onEnter()" [formGroup]="playerForm">
+              <div class="form-group">
+                <input type="text" required autocomplete="off" name="username" formControlName="username">
+                <div class="error-msg"
+                  *ngIf="playerForm.get('username')?.hasError('required') && playerForm.get('username')?.touched">
+                  required
+                </div>
+                <div class="error-msg"
+                  *ngIf="playerForm.get('username')?.hasError('minlength') && playerForm.get('username')?.touched">
+                  too small
+                </div>
+              </div>
+              <button type="submit" [disabled]="playerForm.invalid">
+                Play
+              </button>
+            </form>
           </div>
-          <button type="submit" [disabled]="playerForm.invalid">
-            Play
-          </button>
-        </form>
+        </div>
+
       </div>
     </div>
-  
-    </div>
-  </div>
-  
