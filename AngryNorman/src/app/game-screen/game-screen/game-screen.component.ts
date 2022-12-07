@@ -1,8 +1,8 @@
-import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, OnChanges, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Dimensions, PlayerService } from '../../services/player.service';
 import { Obstacle, ObstacleService, score, start } from '../../services/obstacle.service';
-import { obs,platCords,platDms } from '../../services/obstacle.service';
+import { obs,platCords,platDms, grade } from '../../services/obstacle.service';
 import { playerCords,playerDms } from '../../services/player.service';
 import { normanCords,normanDms, NormanService } from '../../services/norman.service';
 
@@ -11,7 +11,7 @@ import { normanCords,normanDms, NormanService } from '../../services/norman.serv
   templateUrl: './game-screen.component.html',
   styleUrls: ['./game-screen.component.scss']
 })
-export class GameScreenComponent implements OnInit{
+export class GameScreenComponent implements OnInit, OnChanges{
 
   username:string | null = null;
   start:boolean = false;
@@ -19,10 +19,12 @@ export class GameScreenComponent implements OnInit{
   playerDms:Dimensions = playerDms;
   normanDMS:Dimensions = normanDms;
   score:number[] = score;
+  grade:String = grade;
 
   @ViewChild('player') playerRef!: ElementRef;
   @ViewChild('norman') normanRef!: ElementRef;
   @ViewChild('platform') platformRef!: ElementRef;
+
 
 
 
@@ -67,6 +69,18 @@ export class GameScreenComponent implements OnInit{
 
 
   ngOnInit(): void {
+    this.grade = 'F'
+  }
+  ngDoCheck():void{
+    if (score[0]<150){this.grade = 'F'}
+    if (score[0]>150 && score[0]<300){this.grade = 'D'}
+    if (score[0]>300 && score[0]<350){this.grade = 'C'}
+    if (score[0]>500 && score[0]<650){this.grade = 'B'}
+    if (score[0]>800 && score[0]<1000){this.grade = 'A'}
+    if(score[0]>1000){this.grade = 'godmode'}
+  }
+  ngOnChanges():void{
+
   }
 
   // start or restart the game on spacebar button.

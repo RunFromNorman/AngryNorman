@@ -15,6 +15,19 @@ strong{
   color: rgb(5, 142, 96);
 }
     .home-screen {
+      .cartoonbutton{
+        text-align: center;
+        justify-content: center
+      
+      }
+      .cartoonblock{
+        text-align: center;
+        justify-content: center
+      }
+      .cartoonimage{
+        height: 600px;
+        width: 600px;
+      }
       .rules {
         text-align: center;
         p {
