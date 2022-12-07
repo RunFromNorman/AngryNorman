@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators,ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -36,25 +36,26 @@ export class HomeScreenComponent implements OnInit {
 
 
 
-  constructor(private router:Router) {
+  constructor(private router: Router) {
 
   }
 
   // form for entering username to play.
   ngOnInit(): void {
+    this.imageSrc = 'assets/cartoon1.jpg';
     this.playerForm = new FormGroup({
-      username : new FormControl('',[Validators.required,Validators.minLength(6)])
+      username: new FormControl('', [Validators.required, Validators.minLength(6)])
     });
   }
 
   // action of the play form.
-  onEnter(){
-    if(this.playerForm.valid){
+  onEnter() {
+    if (this.playerForm.valid) {
       // redirected to the different route and passing username as data.
-      this.router.navigate(['game',{user:this.playerForm.get('username')?.value}]);
+      this.router.navigate(['game', { user: this.playerForm.get('username')?.value }]);
     }
   }
-  onClick(imageNameObject: { src: string;}) {
+  onClick(imageNameObject: { src: string; }) {
     this.imageSrc = imageNameObject.src;
   }
 }

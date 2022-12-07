@@ -2,24 +2,24 @@ import { Component, ElementRef, HostListener, OnInit, OnChanges, ViewChild } fro
 import { ActivatedRoute, Router } from '@angular/router';
 import { Dimensions, PlayerService } from '../../services/player.service';
 import { Obstacle, ObstacleService, score, start } from '../../services/obstacle.service';
-import { obs,platCords,platDms, grade } from '../../services/obstacle.service';
-import { playerCords,playerDms } from '../../services/player.service';
-import { normanCords,normanDms, NormanService } from '../../services/norman.service';
+import { obs, platCords, platDms, grade } from '../../services/obstacle.service';
+import { playerCords, playerDms } from '../../services/player.service';
+import { normanCords, normanDms, NormanService } from '../../services/norman.service';
 
 @Component({
   selector: 'app-game-screen',
   templateUrl: './game-screen.component.html',
   styleUrls: ['./game-screen.component.scss']
 })
-export class GameScreenComponent implements OnInit, OnChanges{
+export class GameScreenComponent implements OnInit, OnChanges {
 
-  username:string | null = null;
-  start:boolean = false;
-  obs:Obstacle[]=obs;
-  playerDms:Dimensions = playerDms;
-  normanDMS:Dimensions = normanDms;
-  score:number[] = score;
-  grade:String = grade;
+  username: string | null = null;
+  start: boolean = false;
+  obs: Obstacle[] = obs;
+  playerDms: Dimensions = playerDms;
+  normanDMS: Dimensions = normanDms;
+  score: number[] = score;
+  grade: String = grade;
 
   @ViewChild('player') playerRef!: ElementRef;
   @ViewChild('norman') normanRef!: ElementRef;
@@ -28,15 +28,15 @@ export class GameScreenComponent implements OnInit, OnChanges{
 
 
 
-  constructor(private route:ActivatedRoute,
-              public ps:PlayerService,
-              public ns: NormanService,
-              public ob:ObstacleService,
-              private router:Router) {
+  constructor(private route: ActivatedRoute,
+    public ps: PlayerService,
+    public ns: NormanService,
+    public ob: ObstacleService,
+    private router: Router) {
 
     // retrieving the data passed from route
     this.username = this.route.snapshot.paramMap?.get('user');
-    if(this.username === null || this.username==""){
+    if (this.username === null || this.username == "") {
       this.router.navigate(['/']);
     }
 
@@ -50,20 +50,20 @@ export class GameScreenComponent implements OnInit, OnChanges{
     switch (event.key) {
       case ' ':
       case 'ArrowUp':
-            if(this.ob.playing)
-              this.ps.jump();
-            break;
+        if (this.ob.playing)
+          this.ps.jump();
+        break;
 
       case 'Enter':
-            if(!this.ob.playing)
-              this.startGame();
-              this.start = true;
-            break;
+        if (!this.ob.playing)
+          this.startGame();
+        this.start = true;
+        break;
 
-      case 'ArrowDown':{
-              this.ps.duck();
-            }
-            break;
+      case 'ArrowDown': {
+        this.ps.duck();
+      }
+        break;
     }
   }
 
@@ -71,22 +71,22 @@ export class GameScreenComponent implements OnInit, OnChanges{
   ngOnInit(): void {
     this.grade = 'F'
   }
-  ngDoCheck():void{
-    if (score[0]<150){this.grade = 'F'}
-    if (score[0]>150 && score[0]<300){this.grade = 'D'}
-    if (score[0]>300 && score[0]<350){this.grade = 'C'}
-    if (score[0]>500 && score[0]<650){this.grade = 'B'}
-    if (score[0]>800 && score[0]<1000){this.grade = 'A'}
-    if(score[0]>1000){this.grade = 'godmode'}
+  ngDoCheck(): void {
+    if (score[0] < 150) { this.grade = 'F' }
+    if (score[0] > 150 && score[0] < 300) { this.grade = 'D' }
+    if (score[0] > 300 && score[0] < 350) { this.grade = 'C' }
+    if (score[0] > 500 && score[0] < 650) { this.grade = 'B' }
+    if (score[0] > 800 && score[0] < 1000) { this.grade = 'A' }
+    if (score[0] > 1000) { this.grade = 'godmode' }
   }
-  ngOnChanges():void{
+  ngOnChanges(): void {
 
   }
 
   // start or restart the game on spacebar button.
   // start : clear all the obstacle and score and other stuff.
-  startGame(){
-    obs.splice(0,obs.length);
+  startGame() {
+    obs.splice(0, obs.length);
     this.ps.bottom = 0;
     playerDms.height = 30;
     playerCords.xoffset = 150;
