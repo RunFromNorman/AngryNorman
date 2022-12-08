@@ -36,7 +36,7 @@ export class GameScreenComponent implements OnInit, OnChanges {
 
     // retrieving the data passed from route
     this.username = this.route.snapshot.paramMap?.get('user');
-    if (this.username === null || this.username == "") {
+    if (this.username === null || this.username === "") {
       this.router.navigate(['/']);
     }
 
@@ -95,7 +95,7 @@ export class GameScreenComponent implements OnInit, OnChanges {
     normanDms.height = 60;
     normanCords.xoffset = 50;
     normanCords.yoffset = 600;
-
+    // https://github.com/deeps8/ng-dino
     let plCords = this.platformRef.nativeElement.getBoundingClientRect();
     platCords.xoffset = Math.floor(plCords.x + plCords.width);
     platCords.yoffset = Math.floor(plCords.y + plCords.height);

@@ -6,7 +6,7 @@
       <button style="margin-left: auto;margin-top: 20px;" [routerLink]="['/']">Home</button>
     </div>
     <div class="rules">
-      <p *ngIf="!ob.playing && score[0]==0">
+      <p *ngIf="!ob.playing && score[0]===0">
         Press <img src="assets/enter.png" alt=""> "Enter" to play.
       </p>
       <p *ngIf="!ob.playing && score[0]>0">
@@ -21,7 +21,7 @@
       <div class="screen">
         <div class="platform" #platform>
 
-          <div *ngIf="start == false">
+          <div *ngIf="start === false">
             <div class="initbox">
               <img class="angrybubble" src="assets/angrybubble.png">
               <div class="normanText">HOW DARE YOU<br> CHEAT ON MY TEST!!</div>

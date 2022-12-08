@@ -92,11 +92,11 @@ export class PlayerService {
 
     let downTime = setInterval(() => {
 
-      if (playerDms.height == 4 || !start) {
+      if (playerDms.height === 4 || !start) {
         clearInterval(downTime);
 
         let upTime = setInterval(() => {
-          if (playerDms.height == 28 || !start) {
+          if (playerDms.height === 28 || !start) {
             clearInterval(upTime);
             this.motion.duck = false;
           }
