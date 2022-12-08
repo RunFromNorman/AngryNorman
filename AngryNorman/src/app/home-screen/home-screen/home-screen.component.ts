@@ -40,7 +40,6 @@ export class HomeScreenComponent implements OnInit {
 
   }
 
-  // form for entering username to play.
   ngOnInit(): void {
     this.imageSrc = 'assets/cartoon1.jpg';
     this.playerForm = new FormGroup({
@@ -48,7 +47,7 @@ export class HomeScreenComponent implements OnInit {
     });
   }
 
-  // action of the play form.
+  // name submission
   onEnter() {
     if (this.playerForm.valid) {
       // redirected to the different route and passing username as data.
