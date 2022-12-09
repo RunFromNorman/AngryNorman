@@ -17,8 +17,8 @@
           <p>Dodge his <strong>WRATH</strong> by either Jumping or Ducking.</p>
           <p class="inst">
             Press <img src="assets/enter.png" alt=""> "Enter" to start or restart the game. <br>
-            Press <img src="assets/space.png" alt=""> "Space" <span> - or - </span> <img src="assets/arrow-up.png"
-              alt="">
+            Press <img src="assets/space.png" alt=""> "Space" <span> <strong> or </strong> </span> <img
+              src="assets/arrow-up.png" alt="">
             "Arrow Up" to Jump. <br>
             Press <img src="assets/arrow-down.png" alt=""> "Arrow Down" to Duck.
           </p>
@@ -32,11 +32,11 @@
                 <input type="text" required autocomplete="off" name="username" formControlName="username">
                 <div class="error-msg"
                   *ngIf="playerForm.get('username')?.hasError('required') && playerForm.get('username')?.touched">
-                  required
+                  You need to give a Name to play
                 </div>
                 <div class="error-msg"
                   *ngIf="playerForm.get('username')?.hasError('minlength') && playerForm.get('username')?.touched">
-                  too small
+                  Please Give a Name with a Minimum 2 Characters
                 </div>
               </div>
               <button type="submit" [disabled]="playerForm.invalid">

@@ -10,7 +10,8 @@
         Press <img src="assets/enter.png" alt=""> "Enter" to play.
       </p>
       <p *ngIf="!ob.playing && score[0]>0">
-        <img src="assets/dead.png" alt=""><br>Game Over You Got Caught By Professor Norman... Your Got a {{grade}}
+        <img src="assets/angelnorman.png" alt=""><br>Game Over You Got Caught By Professor Norman... Your Got a
+        {{grade}}
       </p>
       <div class="score">
         <p>Highest Score : <strong> {{score[1]}} </strong></p>
@@ -36,6 +37,7 @@
 
           <div class="obs" *ngFor="let i of obs" [style.height.px]="i.height" [style.width.px]="i.width"
             [style.bottom.px]="i.bottom" [style.left.px]="i.left"></div>
+          <!-- https://angular.io/api/common/NgSwitch -->
           <ng-container [ngSwitch]="grade">
             <img *ngSwitchCase="'godmode'" class="gradeimg" src="assets/godmode.png" />
             <img *ngSwitchCase="'A'" class="gradeimg" src="assets/letterA.png" />
@@ -50,6 +52,7 @@
     </div>
     <div class="keypad">
       <div class="keypad-btn">
+        <!-- disabled when not playing. Key Binded by keyboard events by hostlistener -->
         <button [disabled]="ob.playing" (click)="startGame()">Play</button>
         <div>
           <button [disabled]="!ob.playing" (click)="ps.jump()">Jump</button>
