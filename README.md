@@ -51,10 +51,14 @@ Player Moving:
 
 Other than the main skeleton above, we have used:
 
-- // https://www.w3schools.com/howto/howto_css_shake_image.asp
+- https://www.w3schools.com/howto/howto_css_shake_image.asp
+
+
+was able to understand the source code after watching and reading:
+
+= https://www.youtube.com/watch?v=CR5cFHmNi6U
 - https://medium.com/weekly-webtips/how-to-pass-data-between-components-in-angular-8-c6bfc0358cd2
 - https://angular.io/guide/inputs-outputs
-
 
 ## Extra:
 
