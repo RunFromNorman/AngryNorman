@@ -43,7 +43,7 @@ export class HomeScreenComponent implements OnInit {
   ngOnInit(): void {
     this.imageSrc = 'assets/cartoon1.jpg';
     this.playerForm = new FormGroup({
-      username: new FormControl('', [Validators.required, Validators.minLength(6)])
+      username: new FormControl('', [Validators.required, Validators.minLength(3)])
     });
   }
 

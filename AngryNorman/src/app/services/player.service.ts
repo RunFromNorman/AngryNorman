@@ -2,7 +2,9 @@ import { Injectable } from '@angular/core';
 import { obs, start } from './obstacle.service';
 
 // interfaces for coordinates and dimensions
-
+/*
+code built on https://github.com/deeps8/ng-dino
+*/
 export interface Cords {
   xoffset: number,
   yoffset: number
@@ -39,20 +41,7 @@ export class PlayerService {
   }
 
   /*
-    Properties it need to have
-    1. Bottom (that will make it jump)
-    2. dimentions
-    3. Cords
-
-    Actions related to Player :
-    1. Jump
-    2. Duck
-    3. Collided to obstacle or not
-
-  */
-
-  /**
-    Jump player by adding the px to bottom stype property of it. [Better method]
+    implement player's jump function
    */
   jump() {
     if (this.motion.jump) return;
@@ -85,7 +74,9 @@ export class PlayerService {
   }
 
 
-
+  /*
+    implement player's duck function
+   */
   duck() {
 
     if (this.motion.duck) return;

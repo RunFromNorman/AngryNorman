@@ -46,11 +46,12 @@ export class GameScreenComponent implements OnInit, OnChanges {
   // listening to the key down evnets
   @HostListener('document:keydown', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
-
+    // Handles Key board functionalities of each [space],[Arrow Key Up], [Arrow Key Down], and [Enter]
     switch (event.key) {
       case ' ':
       case 'ArrowUp':
         if (this.ob.playing)
+          // calling from the imported player service which contains jump() function
           this.ps.jump();
         break;
 
@@ -61,6 +62,7 @@ export class GameScreenComponent implements OnInit, OnChanges {
         break;
 
       case 'ArrowDown': {
+        // calling from the imported player service which contains duck() function
         this.ps.duck();
       }
         break;
@@ -97,12 +99,23 @@ export class GameScreenComponent implements OnInit, OnChanges {
     normanCords.yoffset = 600;
     // https://github.com/deeps8/ng-dino
     let plCords = this.platformRef.nativeElement.getBoundingClientRect();
+    // xoffset = determine where player is horizontally
+    // yoffset = determine where player is vertically
     platCords.xoffset = Math.floor(plCords.x + plCords.width);
     platCords.yoffset = Math.floor(plCords.y + plCords.height);
 
     platDms.width = Math.floor(plCords.width);
     platDms.height = Math.floor(plCords.height);
 
+    /* *** UNDERSTANDING THE SOURCE CODE ***
+    obstacle being created by:
+       -> spawning() being called
+       -> when game starts, every determined gamespeed seconds, obstacle is created and added to array
+       -> This array contains objects of classes obstacle
+       -> Each of these Rectangle shaped obstacles are created by this.platformRef.nativeElement.getBoundingClientRect();
+       -> Which is a manipulation of DOM, it returns a DOMRECT object. (https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect)
+       -> Then at in spawning() function, Using DOM Manipulation, and timer with setInterval, objects are able to be created and moved across the Document
+    */
     this.ob.spawning();
   }
 
