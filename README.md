@@ -22,19 +22,31 @@ We have added more features and functionalities along with more UI and component
 ## Understanding the source code:
 
 obstacle being created by:
+
        -> spawning() being called
+       
        -> when game starts, every determined gamespeed seconds, obstacle is created and added to array
+       
        -> This array contains objects of classes obstacle
+       
        -> Each of these Rectangle shaped obstacles are created by this.platformRef.nativeElement.getBoundingClientRect();
+       
        -> Which is a manipulation of DOM, it returns a DOMRECT object. (https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect)
+       
        -> Then at in spawning() function, Using DOM Manipulation, and timer with setInterval, objects are able to be created and moved across the Document
        
+       
 Player Moving: 
+
        -> player, also a rectangle object, just blurred out as a white background and overlayed with an image, has two functionalities:
+       
        -> Jump: player can jump above the ground, calculated by x and y offset coordination and wrapped by setInterval timing
+       
        -> Duck: player can duck down, calculated by x and y offset coordination and wrapped by setInterval timing
        
+       
 ## Future add-on ( as for Future Personal Project) :
+
        ->  Hoping to make professor Norman to Jump and Duck by self, giving recognition of offsets and remaining distance with the upcoming object.
 
 Other than the main skeleton above, we have used:
