@@ -56,7 +56,7 @@ Other than the main skeleton above, we have used:
 
 was able to understand the source code after watching and reading:
 
-= https://www.youtube.com/watch?v=CR5cFHmNi6U
+- https://www.youtube.com/watch?v=CR5cFHmNi6U
 - https://medium.com/weekly-webtips/how-to-pass-data-between-components-in-angular-8-c6bfc0358cd2
 - https://angular.io/guide/inputs-outputs
 
