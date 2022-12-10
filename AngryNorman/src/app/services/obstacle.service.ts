@@ -109,7 +109,7 @@ export let obs: Obstacle[] = [];
 export class ObstacleService {
 
   playing: boolean = false;
-  gameSpeed: number = 600;
+  gameSpeed: number = 800;
   constructor() { }
 
 

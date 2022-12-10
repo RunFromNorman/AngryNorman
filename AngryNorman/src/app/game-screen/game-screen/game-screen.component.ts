@@ -5,6 +5,8 @@ import { Obstacle, ObstacleService, score, start } from '../../services/obstacle
 import { obs, platCords, platDms, grade } from '../../services/obstacle.service';
 import { playerCords, playerDms } from '../../services/player.service';
 import { normanCords, normanDms, NormanService } from '../../services/norman.service';
+import { DataService } from '../../services/data.service';
+import { SelectorContext } from '@angular/compiler';
 
 @Component({
   selector: 'app-game-screen',
@@ -19,7 +21,7 @@ export class GameScreenComponent implements OnInit, OnChanges {
   playerDms: Dimensions = playerDms;
   normanDMS: Dimensions = normanDms;
   score: number[] = score;
-  grade: String = grade;
+  grade: any = grade;
 
   @ViewChild('player') playerRef!: ElementRef;
   @ViewChild('norman') normanRef!: ElementRef;
@@ -32,7 +34,8 @@ export class GameScreenComponent implements OnInit, OnChanges {
     public ps: PlayerService,
     public ns: NormanService,
     public ob: ObstacleService,
-    private router: Router) {
+    private router: Router,
+    private dataservice: DataService) {
 
     // retrieving the data passed from route
     this.username = this.route.snapshot.paramMap?.get('user');
@@ -72,6 +75,14 @@ export class GameScreenComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     this.grade = 'F'
+    this.score[0] = 0;
+    this.score[1] = 0;
+    obs.splice(0, obs.length);
+    playerCords.xoffset = 0;
+    playerCords.yoffset = 0;
+    playerDms.height = 30;
+    playerDms.width = 20;
+    this.ps.bottom = 0;
   }
   ngDoCheck(): void {
     if (score[0] < 150) { this.grade = 'F' }
@@ -118,6 +129,13 @@ export class GameScreenComponent implements OnInit, OnChanges {
     */
     this.ob.spawning();
   }
-
-
+  saveScore(username: string | null, score: number[], grade:any){
+    this.dataservice.addName(this.username, this.score, this.grade)
+      .then()
+      .catch(err => {
+        console.error(err);
+        alert(err.message);
+      });
+    alert('saved')
+  }
 }

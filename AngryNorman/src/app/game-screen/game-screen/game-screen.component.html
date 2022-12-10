@@ -2,8 +2,10 @@
   <div class="game-screen">
     <div class="logo">
       <img class="panicIcon" src="assets/panic.png" alt="">
-      <h2> {{username}}, RUN AND DON'T STOP</h2>
+      <h2>{{username}} , RUN AND DON'T STOP</h2>
+      
       <button style="margin-left: auto;margin-top: 20px;" [routerLink]="['/']">Home</button>
+      <button style="margin-top: 20px;"(click)="saveScore(username, score, grade)" [routerLink]="['/']" >Save Score</button>
     </div>
     <div class="rules">
       <p *ngIf="!ob.playing && score[0]===0">
@@ -38,6 +40,7 @@
           <div class="obs" *ngFor="let i of obs" [style.height.px]="i.height" [style.width.px]="i.width"
             [style.bottom.px]="i.bottom" [style.left.px]="i.left"></div>
           <!-- https://angular.io/api/common/NgSwitch -->
+          <div class = "gradeElement">
           <ng-container [ngSwitch]="grade">
             <img *ngSwitchCase="'godmode'" class="gradeimg" src="assets/godmode.png" />
             <img *ngSwitchCase="'A'" class="gradeimg" src="assets/letterA.png" />
@@ -47,6 +50,7 @@
             <img *ngSwitchDefault class="gradeimg" src="assets/flamingF.png" />
 
           </ng-container>
+        </div>
         </div>
       </div>
     </div>
