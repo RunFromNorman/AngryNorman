@@ -10,8 +10,15 @@
                   </tr>
             </thead>
             <tbody>
-                <tr class="row" *ngFor = "let rec of records">
-                    <td *ngFor="let rec of records">{{ rec.username }} {{ rec.score [1] }} {{ rec.grade }}
+                <tr class="row" *ngFor = "let rec of records.slice(0, 10)">
+                    <td>
+                        {{ rec.username }}
+                    </td>
+                    <td>
+                        {{ rec.grade }}
+                    </td>
+                    <td>
+                        {{ rec.score[1] }}
                     </td>
                   </tr>
             </tbody>

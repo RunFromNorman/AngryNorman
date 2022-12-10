@@ -15,6 +15,8 @@ export interface ScoreRec {
 })
 
 
+
+
 export class ScoreboardScreenComponent implements OnInit {
   public records: ScoreRec[] = [];
   headers = ["User Name", "Grade", "Score"];
@@ -30,7 +32,8 @@ export class ScoreboardScreenComponent implements OnInit {
             console.log(typeof(this.records));
           }
         })
-  }ngOnInit(): void {
-  throw new Error('Method not implemented.');
-}
+  }
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
+  }
 }
