@@ -58,3 +58,4 @@ export class HomeScreenComponent implements OnInit {
     this.imageSrc = imageNameObject.src;
   }
 }
+

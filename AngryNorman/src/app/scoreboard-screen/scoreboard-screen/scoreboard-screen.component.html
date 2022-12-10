@@ -1,1 +1,22 @@
-<p>scoreboard-screen works!</p>
+<div class="main">
+    <h1>Did you successfully escape from Professor Norman?</h1>
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th *ngFor = "let column of headers">
+                      {{column}}
+                    </th>
+                  </tr>
+            </thead>
+            <tbody>
+                <tr class="row" *ngFor = "let rec of records">
+                    <td *ngFor="let rec of records">{{ rec.username }} {{ rec.score [1] }} {{ rec.grade }}
+                    </td>
+                  </tr>
+            </tbody>
+        </table>
+        <button class="backToHome" [routerLink]="['/']">Back to Home</button>
+    </div>
+    
+</div>

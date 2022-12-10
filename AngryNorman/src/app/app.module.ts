@@ -11,6 +11,10 @@ import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { GameScreenComponent } from './game-screen/game-screen/game-screen.component';
 import { HomeScreenComponent } from './home-screen/home-screen/home-screen.component';
 import { ScoreboardScreenComponent } from './scoreboard-screen/scoreboard-screen/scoreboard-screen.component';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore'; 
+import { FIREBASE_OPTIONS } from '@angular/fire/compat';
+import {AngularFireModule} from '@angular/fire/compat';
+
 
 @NgModule({
   declarations: [
@@ -24,12 +28,14 @@ import { ScoreboardScreenComponent } from './scoreboard-screen/scoreboard-screen
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),
-    provideFirestore(() => getFirestore())
+    provideFirestore(() => getFirestore()),
+    AngularFirestoreModule,
   ],
-  providers: [],
+  providers: [{ provide: FIREBASE_OPTIONS, useValue: environment.firebase }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

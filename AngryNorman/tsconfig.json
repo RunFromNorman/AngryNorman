@@ -11,6 +11,7 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
+    "noImplicitAny": false,
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
@@ -30,3 +31,4 @@
     "strictTemplates": true
   }
 }
+
