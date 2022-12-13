@@ -3,7 +3,7 @@
 Team name : AngryNorman 
 
 
-Team member: Seong Chan Cho (sc77) GunJu David Yoo (gy24) 
+Team member: Seong Chan Cho (sc77) Gunju Yoo (gy24) 
 
 
 Project Description: To Cheat or Not to Cheat is a mini game where player runs away from angry professor Norman while avoiding obstacles. 
@@ -52,6 +52,8 @@ Player Moving:
 Other than the main skeleton above, we have used:
 
 - https://www.w3schools.com/howto/howto_css_shake_image.asp
+- scoreboard scss: https://freefrontend.com/css-tables/
+- addUserToTable function in data.service.ts: https://www.makeuseof.com/store-update-retrieve-data-from-firebase-database-in-angular/
 
 
 was able to understand the source code after watching and reading:
