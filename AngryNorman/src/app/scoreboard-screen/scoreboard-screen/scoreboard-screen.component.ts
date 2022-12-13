@@ -16,7 +16,7 @@ export interface ScoreRec {
 
 
 
-
+// This code is from homework 10 - chat-app components
 export class ScoreboardScreenComponent implements OnInit {
   public records: ScoreRec[] = [];
   headers = ["User Name", "Grade", "Score"];

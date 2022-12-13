@@ -6,7 +6,7 @@ import { obs, platCords, platDms, grade } from '../../services/obstacle.service'
 import { playerCords, playerDms } from '../../services/player.service';
 import { normanCords, normanDms, NormanService } from '../../services/norman.service';
 import { DataService } from '../../services/data.service';
-import { SelectorContext } from '@angular/compiler';
+
 
 @Component({
   selector: 'app-game-screen',
@@ -129,13 +129,15 @@ export class GameScreenComponent implements OnInit, OnChanges {
     */
     this.ob.spawning();
   }
+
+  // saveScore function is called in the game-screen component, and it will save the current username, score, grade to the database.
   saveScore(username: string | null, score: number[], grade:any){
-    this.dataservice.addName(this.username, this.score, this.grade)
+    this.dataservice.addUserToTable(this.username, this.score, this.grade)
       .then()
       .catch(err => {
         console.error(err);
         alert(err.message);
       });
-    alert('saved')
+    alert('Score is saved!')
   }
 }
